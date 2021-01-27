@@ -1,0 +1,23 @@
+<div class="jumbotron">
+    <div class="container">
+        <app-scroll-top></app-scroll-top>
+        <app-add-post></app-add-post>
+        <app-items></app-items>
+        <div class="sidenav">
+            <app-side-nav></app-side-nav>
+        </div>
+    </div>
+    <div class="RightPanel">
+        <div class="marquee" >
+        <div *ngFor="let marq of marqs">
+            <marquee behavior="scroll" scrollamount="8" direction="left">{{marq.marqText}}</marquee>
+            <button class="btnDelete" (click)="deleteNews($event, marq)" *ngIf="this.auth.getUserDetails().email == 'Admin'"><img src="/assets/delete.png" class="icon"></button>
+        </div>
+         </div>
+        <div class="bulletinBoard">
+            <app-bulletin></app-bulletin>
+        </div>
+    </div>
+</div>
+
+

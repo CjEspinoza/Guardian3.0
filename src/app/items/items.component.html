@@ -1,0 +1,92 @@
+<div class="toastCon" id="toastCon">
+    <label id="hiddenT" class="hiddenToast" >You've already fancied the post</label>
+    </div>
+<div *ngIf="posts?.length > 0;else noItems">
+    <div class="searchBarClass">
+    <input type="text" name="search" autocomplete="off" [(ngModel)]="search" class="searchBar" placeholder="Search a post . . . .">
+</div>
+    <div *ngFor="let post of posts | filter:search" class="collection">
+        <div class="main-container" *ngIf="userDetails">
+        <div class="post-container">
+            <div >
+                <label class="collection-item-code">{{post.codename}} </label>
+                <div class="divIcon">
+                    <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/edit.png?raw=true" (click)="editItem($event, post)" class="editIcon" *ngIf="post.userName == userDetails.fullName" data-toggle="tooltip" data-placement="top" title="Edit" >
+                    <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/delete.png?raw=true" *ngIf="editState && itemToEdit.id == post.id" class="deleteIcon" (click)="deleteItem($event, post)" data-toggle="tooltip" data-placement="top" title="Delete">
+                    <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/compress.png?raw=true" *ngIf="editState && itemToEdit.id == post.id" (click)="clearState()" class="compressEdit" data-toggle="tooltip" data-placement="top" title="Minimize">
+               </div>
+            </div>
+            <div>
+                <label class="timeDate" >{{post.timeDate.seconds*1000 | date: 'h:mm a MMM d y EEE'}}</label>
+            </div>
+                
+        </div>
+        <div class="post-content-container">
+            <label class="collection-item">{{post.post}}</label>
+        </div>
+        <div class="reaction-container">
+            <form (ngSubmit)="ups(post, userDetails.email)" class="form1" >
+                <label class="labelFancy">
+                <div>
+                <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/FancyIcon.png?raw=true" class="upBTN" id="Fancy" data-toggle="tooltip" data-placement="top" title="Fancy!">
+                <label id="NoOfFancy">{{post.ups}}</label>
+                <label id="Fancied">Fancied!</label>
+                </div>
+                <input type="submit" value="" class="btn" style="display: none;"></label>
+                <input name="upsBtn" type="hidden" id="upsBtn" [(ngModel)]="post.ups" value={{post.ups}}>
+                <input type="hidden" name="likesID" id="likesID" [(ngModel)]="like.id" value={{userDetails.email}}_{{post.id}}>
+                <input type="hidden" name="userEmail" id="userEmail" [(ngModel)]="like.userEmail" value={{userDetails.email}}>
+                <input name="postID" id="postid" ngModel type="hidden" value={{this.post.id}} [(ngModel)]="like.postID">
+                <input type="hidden" id="likeid" ngModel name="likeid" value={{this.like.id}} [(ngModel)]="like.id">
+            </form>
+        </div>
+        <div class="hidden-edit-container" *ngIf="editState && itemToEdit.id == post.id">
+            <div class="editpost">
+                <form (ngSubmit)="updateItem(post)" class="form">
+                    <div class="hidden-field">
+                        <textarea name="post" placeholder="  Share your thoughts . . ." cols="30" rows="5" [(ngModel)]="post.post" class="postfield" name="post"></textarea>
+                    </div>
+                        <input type="submit" value="Update" class="btn">
+                </form>
+            </div>
+        </div><hr>
+        <div class="showCommentSection"  (click)="showComments($event, post)" data-toggle="tooltip" title="Show Comment">
+            <label class="showComment"></label>
+        </div>
+        <div class="comment-section" *ngIf="commentsV && commentsToShow.id == post.id">
+            Comments:
+            <div class="container"  *ngFor="let comment of comments">
+                <div class="collection-comment" *ngIf="comment.postid == post.id">
+                    <div class="div-CC">
+                        <label class="comment-Codename">
+                            {{comment.commentcodename}}
+                        </label>          
+                    </div>             
+                         <div class="comment-Item">
+                            <label class="collection-item">
+                                {{comment.comment}}
+                            </label>
+                            <button class="btnDelete" (click)="deleteComment($event, comment)" *ngIf="comment.commentcodename == userDetails.fullName">Delete</button>   
+                         </div>
+                </div>
+            </div>
+            <form (ngSubmit)="onSubmit(post.id, userDetails.fullName)" class="form">
+                <div class="input-field">
+                    <textarea name="comment" placeholder="  Share your comment . . ." cols="30" rows="10" [(ngModel)]="comment.comment" class="commentfield" name="comment">
+                    </textarea>
+                    <input name="userName" id="userName" ngModel type="hidden" value={{userDetails.fullName}} [(ngModel)]="comment.commentcodename">
+                    <input name="postID" id="postid" ngModel type="hidden" value={{this.post.id}} [(ngModel)]="comment.postid">
+                    <button type="submit" class="btnComment"><img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/send.png?raw=true" class="icon"></button>
+                </div>
+            </form>
+            <div class="hideCommentSection" *ngIf="commentsV" (click)="hideComments()" data-toggle="tooltip" title="Hide Comments">
+            <label class="hideComment"></label>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<ng-template #noItems>
+    <hr>
+    <h5>There are no posts on the list.</h5>
+</ng-template>

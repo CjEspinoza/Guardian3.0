@@ -1,0 +1,38 @@
+<div class="body" *ngIf="userDetails">
+    <div class="heroImage">
+        <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/UpdatesBackground.jpg?raw=true" alt="" class="UpdatesBG">
+    </div>
+
+    <div class="Title">
+        <h1 class="Tups">GUARDIAN UPDATES
+        </h1>
+    </div>
+    <div class="post-grid">
+        <div class="post"  *ngFor="let update of updates">
+            <div>
+                <img src={{this.update.imgLink}} alt="" class="picture-post">
+            </div>
+
+            <div class="post-title">
+                <h1>{{update.title}}
+                    <div class="deleteCon" *ngIf="userDetails.fullName == 'Cj Espinoza'">
+                        <button class="btnDelete" (click)="deleteUpdate($event, update)"><img src="/assets/delete.png" class="icon"></button>
+                    </div>
+                </h1>
+            </div>
+
+            <div class="message-post">
+                <h2>{{update.date.seconds*1000 | date: 'MMM d y'}}</h2>
+                <p>
+                    {{update.uText}}
+                </p>
+                <h3>Sincerely, Team Guardian-</h3>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    <app-scroll-top></app-scroll-top>
+    <app-tournament-footer></app-tournament-footer>
+</div>

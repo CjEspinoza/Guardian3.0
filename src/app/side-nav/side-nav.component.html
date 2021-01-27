@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" fixedTopGap="61" position="end" mode="over" [opened]="false">
+      
+      
+      <mat-toolbar>
+        <button type="button" class="close-button" (click)="drawer.close()">
+          <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/x-icon.png?raw=true" class="exit-icon">
+        </button>
+      </mat-toolbar>
+        <div class="head">
+          <h2 class="header-title">Site Navigation</h2>
+        </div>
+      
+      <mat-nav-list *ngIf="userDetails">
+        <a mat-list-item (click)="home()" (click)="drawer.close()" id="Home">Home</a>
+        <a mat-list-item (click)="tournamentPage()" (click)="drawer.close()" id="tournament">Tournament</a>
+        <a mat-list-item (click)="blogPage()" (click)="drawer.close()" id="updates">Updates</a>
+        <a mat-list-item (click)="contactPage()" (click)="drawer.close()" id="contacts">Contacts</a>
+        <a mat-list-item (click)="dashboard()" (click)="drawer.close()" *ngIf="this.userDetails.fullName == 'Cj Espinoza'" id="admin">Admin Dashboard</a>
+        <a mat-list-item (click)="logout()"(click)="drawer.close()">Logout</a>
+      </mat-nav-list>
+        <app-user-profile class="user"></app-user-profile>
+        <app-bulletin class="bulletin"></app-bulletin> 
+    </mat-sidenav>
+  
+  
+  
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button type="button" class="nav-button" (click)="drawer.toggle()">
+          <img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/AppDrawer.png?raw=true" class="Drawer">
+        </button>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

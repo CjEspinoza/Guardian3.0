@@ -1,0 +1,233 @@
+.card{
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    background-color: #2c2c2c;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 80px;
+    background-image: url(https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/CardBG.jpg?raw=true);
+    background-repeat: no-repeat;
+    background-size: contain
+}
+
+.postfield{
+    display: flex;
+    width: 100%;
+    position: relative;
+    top: 24px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background-color: rgb(85, 85, 85);
+    height: 80px;
+    font-size: 25px;
+    color: rgb(214, 212, 212);
+    padding-left: 10px;
+    padding-right: 10px;
+    resize: none;
+    border: none;
+    overflow: hidden;
+}
+
+.postfield:hover{
+    border: solid 2px rgb(223, 127, 1);
+}
+
+.codenamefield{
+    color: rgb(209, 209, 209);
+    width: 70%;
+    position: relative;
+    top: 22px;
+    border-radius: 10px;
+    background-color: rgb(85, 85, 85);
+    height: 29px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    border: none;
+}
+.codenamefield:hover{
+    border: solid 2px rgb(223, 127, 1);
+}
+.btnPost{
+    margin-left: 10px;
+    position: relative;
+    top: 22px;
+    width: 27%;
+    border-radius:10px;
+    background-color: rgb(194, 194, 194);
+    border:none;
+    height:29px;
+}
+.btnPost:hover{
+    background-color: rgb(223, 127, 1);
+    font-weight: bold;
+    transition: .4s;
+}
+.icon{
+    width: 20px;
+    height: auto;
+    margin-right: 4px;
+}
+.freedomwall{
+    height: 7vmin;
+    margin-bottom: 10px;
+    opacity: 0%;
+    visibility: hidden;
+}
+.error{
+    visibility: hidden;
+    color: black;
+}
+.errorCon{
+    visibility: hidden;
+    position: fixed;
+    background-color: rgb(238, 96, 96);
+    border-radius: 4px;
+    border: 1px solid red;
+    width: 50%;
+    top: 63px;
+    left: 25%;
+    text-align: center;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1278px){
+    .btnPost{
+        width: 26%;
+    }
+}
+@media screen and (max-width: 1115px){
+    .card{
+        background-size: contain;
+        padding-top: 12px;
+
+    }
+}
+@media screen and (max-width:944px){
+    .card{
+        padding: 35px;
+        padding-bottom: 11px;
+        display: flex;
+        justify-content: center;
+        background-color: #2c2c2c;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 1px;
+        margin-top: 80px;
+        background-image: url(https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/CardBG.jpg?raw=true);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .postfield{
+        display: flex;
+        width: 100%;
+        position: relative;
+        top: 4px;
+        border-radius: 10px;
+        margin-bottom: 8px;
+        background-color: #555555;
+        height: 25px;
+        font-size: 17px;
+        color: #d6d4d4;
+        padding-left: 10px;
+        padding-right: 10px;
+        resize: none;
+        border: none;
+        overflow: hidden;
+    }
+
+    .codenamefield{
+        color: #d1d1d1;
+        width: 73%;
+        position: relative;
+        top: 0px;
+        border-radius: 10px;
+        background-color: #555555;
+        height: 25px;
+        font-size: 13px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border: none;
+    }
+
+    .btnPost{
+        margin-left: 2px;
+        position: relative;
+        top: -1px;
+        width: 26%;
+        border-radius: 10px;
+        font-size: 11px;
+        background-color: #c2c2c2;
+        border: none;
+        height: 25px;
+        }
+    .icon{
+        width: 13px;
+    }
+    
+
+}
+@media screen and (max-width:530px){
+    .errorCon{
+        width: 70%;
+        left: 15%;
+    }
+}
+
+@media screen and (max-width:426px){
+    .codenamefield{
+        width: 67%;
+    }
+    .btnPost{
+        width: 28%;
+    }
+}
+
+@media screen and (max-width:376px){
+    .card{
+        padding: 19px;
+        padding-bottom: 9px;
+    }
+
+    .btnPost{
+        margin-left: 10px;
+        position: relative;
+        top: -2px;
+        width: 27%;
+        border-radius: 10px;
+        font-size: 11px;
+        background-color: #c2c2c2;
+        border: none;
+        height: 25px;
+    }
+}
+
+@media screen and (max-width:320px){
+    .postfield{
+        height: 21px;
+        font-size: 13px;
+    }
+    .codenamefield{
+        height: 21px;
+        font-size: 11px;
+    }
+    .btnPost{
+        top: -3px;
+        width: 27%;
+        font-size: 9px;
+        height: 21px;
+    }
+    .icon{
+        width: 12px;
+    }
+    .errorCon{
+        width: 80%;
+        left: 10%;
+    }
+}
+

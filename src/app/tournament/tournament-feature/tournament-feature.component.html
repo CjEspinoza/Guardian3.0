@@ -1,0 +1,16 @@
+<div class="featureplays">
+    <div class="feature">
+        <div class="Title">
+            <h1>This Week's Play of the Game</h1>
+        </div>
+        <div class="vid" *ngFor="let vid of vids">
+            <object class="vidCon">
+                <param name="movie" value={{this.vid.vidLink}}/>
+                <param name="allowFullScreen" value="true" />
+            </object>
+                <div *ngIf="auth.getUserDetails()?.email == 'Admin'">
+                    <button class="btnDelete" (click)="deleteVid($event, vid)"><img src="/assets/delete.png" class="icon"></button>
+                </div>
+        </div>
+    </div>
+</div> 

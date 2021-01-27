@@ -1,0 +1,13 @@
+<div class="bulletinPanel" *ngIf="userDetails">
+    <div class="namecard">
+        <p><strong>UPCOMING </strong>MATCHES</p>
+    </div>
+                <div class="upcoming-section" *ngFor="let sched of scheds">
+                    <div>
+                        <img src={{this.sched.imgLink}} class="MatchLOL">
+                    </div>
+                    <div *ngIf="userDetails.fullName == 'Cj Espinoza'">
+                        <button class="btnDelete" (click)="deleteSched($event, sched)"><img src="/assets/delete.png" class="icon"></button>
+                    </div>
+                </div>
+</div>

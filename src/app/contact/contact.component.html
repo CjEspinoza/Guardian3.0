@@ -1,0 +1,85 @@
+<div class="body">
+	<app-scroll-top></app-scroll-top>
+	<div class="hero-wrap">
+		<img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/ContactPage.jpg?raw=true">
+	</div>
+	<div class="contact">
+		<!--intro-->
+		<h1>CONTACT US</h1>
+		<P>
+			Hi there! your feedback is very important to us, so if you have any questions, concerns and complaints
+			about our website feel free to send us
+			a message. We are open to hear your opinions and comments to further improve our website for your
+			enjoyment.
+		</P>
+	</div>
+	<!--Message -->
+	<div class="contact-section">
+		<img src="/assets/img-01.png">
+		<div class="inner-width">
+			<h1>Get in touch with us</h1>
+			<input type="text" class="name" placeholder="Your Name" [(ngModel)] = "name">
+			<input type="email" class="email" placeholder="Your Email">
+			<textarea rows="1"   id="message" placeholder="Message" class="message" [(ngModel)] = "message"></textarea>
+			<a class="btn-submit"  id = "sendMail" (click)="appendMailTo()"  href="mailto:cjthegreat82@gmail.com?subject={{name}}&body={{message}}">Get in
+				touch </a>
+		</div>
+	</div>
+
+	<!--FOOTER SECTION-->
+	<footer class="footer-distributed">
+
+		<div class="footer-left">
+
+			<h3>AUP<span>Guardian</span></h3>
+
+			<div class="footer-links">
+				<p>
+					<label (click)="home()">Home</label>
+					·
+					<label (click)="tournamentPage()">Tournament</label>
+					·
+					<label (click)="blogPage()">Updates</label>
+				</p>
+			</div>
+
+			<div class="footer-company-name">
+				<p>Guardian &copy; 2020</p>
+			</div>
+		</div>
+
+		<div class="footer-center">
+			<div class="grid">
+				<img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/LocationIcon1.png?raw=true" class="footer-center-icons">
+				<p><span>Puting Kahoy</span> Silang, Cavite</p>
+			</div>
+
+			<div class="grid">
+				<img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/TeleIcon1.png?raw=true" class="footer-center-icons">
+				<p>09554668446</p>
+			</div>
+
+			<div class=grid>
+				<img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/EnvelopeIcon.png?raw=true" class="footer-center-icons">
+				<p><a href="mailto:support@company.com">contact@aupGuardian.com</a></p>
+			</div>
+		</div>
+
+		<div class="footer-right">
+			<p class="footer-company-about">
+				<span>About the Guardians</span>
+				Our goal with this new designed website is to create a user-friendly browsing experience for anyone to
+				use. We hope you enjoy our website uncluttered design that is easy to navigate, and more user-friendly.
+			</p>
+
+			<div class="footer-icons">
+
+				<a href="https://www.facebook.com/TheProjectGuardian" target="_blank"><img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/facebookIcon.png?raw=true" class="footer-mini-icons" 
+						data-toggle="tooltip" data-placement="top" title="Facebook"></a>
+				<a href="https://github.com/ProjectGuardian" target="_blank"><img src="https://github.com/ProjectGuardian/Guardian-Test/blob/master/src/assets/GithubIcon.png?raw=true" class="footer-mini-icons" 
+						data-toggle="tooltip" data-placement="top" title="Github"></a>
+			</div>
+		</div>
+
+	</footer>
+</div>

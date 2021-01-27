@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "Guardian"
+  "defaultProject": "Guardian",
+  "cli": {
+    "analytics": false
+  }
 }
